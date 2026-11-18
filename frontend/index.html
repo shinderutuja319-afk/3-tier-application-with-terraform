@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudTask - Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>CloudTask</h1>
+            <p>Your simple cloud-powered task manager</p>
+        </header>
+
+        <section class="task-form">
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter a new task..."
+                maxlength="255"
+            >
+            <button id="addButton">Add Task</button>
+        </section>
+
+        <p id="message" role="status"></p>
+
+        <section class="task-section">
+            <h2>My Tasks</h2>
+            <div id="taskList">Loading tasks...</div>
+        </section>
+
+        <footer>
+            <p>Built with AWS, Python, Docker and PostgreSQL</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
