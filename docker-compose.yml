@@ -1,11 +1,10 @@
-
 services:
 
   frontend:
     build: ./frontend
     container_name: cloudtask-frontend
     ports:
-      - "8080:80"
+      - "${FRONTEND_PORT:-8080}:80"
     depends_on:
       - backend
     networks:
@@ -19,7 +18,7 @@ services:
       DB_HOST: db
       DB_NAME: cloudtask
       DB_USER: clouduser
-      DB_PASSWORD: ${DB_PASSWORD:-localdevpassword}
+      DB_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD must be set}
       DB_PORT: 5432
     depends_on:
       db:
@@ -35,7 +34,7 @@ services:
     environment:
       POSTGRES_DB: cloudtask
       POSTGRES_USER: clouduser
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-localdevpassword}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD must be set}
     volumes:
       - postgres-data:/var/lib/postgresql/data
       - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
