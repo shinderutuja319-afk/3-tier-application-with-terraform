@@ -26,36 +26,7 @@ All three application layers run as Docker containers on a single Amazon EC2 ins
 - AWS Systems Manager (SSM) access
 
 ### Architecture Diagram
-
-```text
-                 Internet
-                    |
-                    |
-              Internet Gateway
-                    |
-                    |
-               Public Subnet
-                    |
-                    |
-               Security Group
-                    |
-                    |
-              Amazon EC2
-              (Amazon Linux)
-                    |
-              Docker Compose
-                    |
-          +---------+----------+
-          |                    |
-      Frontend              Backend
-       Nginx                Flask API
-          |                    |
-          |                    |
-          +--------+-----------+
-                   |
-                PostgreSQL
-                 Database
-```
+![image alt](https://github.com/shinderutuja319-afk/3-tier-application-with-terraform/blob/ac5013c2dad1d6e5a16ed0ab2753f3d24da938a4/CloudTask%20AWS%20Multi-AZ%20Architecture%20(1).png)
 
 **Note:** This is a cost-conscious portfolio implementation. The three application tiers are separated into Docker services, but they currently share one EC2 instance. This is not a highly available or production-grade multi-subnet deployment.
 
